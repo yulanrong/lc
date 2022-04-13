@@ -1,1 +1,3 @@
 # lc
+
+- [checkParentheses](./checkParentheses.js)
