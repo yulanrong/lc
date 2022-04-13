@@ -4,6 +4,8 @@ input: string eg. '([{}]))'
 output: boolean. determine if the input's openning and closing brackets are properly nested
 */
 
+// time and space complexity: O(n)
+
 function isBalanced(s) {
   // check if string is empty
   if (s.length <= 1) {
