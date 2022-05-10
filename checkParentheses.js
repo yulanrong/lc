@@ -47,9 +47,40 @@ function isBalanced(s) {
   return true;
 }
 
+// Alternate Solution
+function isBalanced1(s) {
+  // check if string is empty
+  if (s.length <= 1) {
+    return false;
+  }
+
+  // check if string's length is odd, then it must be unbalanced.
+  if (s.length % 2 !== 0) {
+    return false;
+  }
+
+  let length = -1; // set current length as any negative number;
+
+  // reduce parentheses until string is empty or no pair parentheses can be reduced
+  while (s.length !== length) {
+    length = s.length;
+    s = s.replace("()", "");
+    s = s.replace("[]", "");
+    s = s.replace("{}", "");
+  }
+
+  // check if the remaining string is empty(all matching) or not.
+  if (s.length === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 console.log(isBalanced("{[({})]}"));
 console.log(isBalanced("{[(})]}"));
 console.log(isBalanced("{[{(})]}"));
 console.log(isBalanced("{"));
 console.log(isBalanced("[[]"));
-console.log(isBalanced("{[[[["));
+// the first solution can't pass the following test
+console.log(isBalanced1("{[]}()"));
